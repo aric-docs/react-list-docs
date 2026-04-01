@@ -5,122 +5,96 @@ order: 0
 
 # Getting Started
 
-Dumi Docs Template is a starting point for building documentation sites with dumi. This template comes with pre-configured tooling and best practices.
-
-## Prerequisites
-
-- Node.js >= 22 (use [.nvmrc](/.nvmrc) with nvm)
-- npm, yarn, or pnpm
+Learn how to install and use ReactList in your project.
 
 ## Installation
 
-### Clone the Template
-
-```bash
-git clone https://github.com/afeiship/react-list-docs.git
-cd react-list-docs
-```
-
-### Install Dependencies
-
 ```bash
 # npm
-npm install
+npm install -S @jswork/react-list
 
 # yarn
-yarn install
+yarn add @jswork/react-list
 
 # pnpm
-pnpm install
+pnpm add @jswork/react-list
 ```
 
-## Development
+## Basic Usage
 
-### Start Dev Server
+### 1. Define Your Data Type
 
-```bash
-npm run dev
+ReactList uses TypeScript generics for full type safety. First, define your data interface:
+
+```tsx
+interface User {
+  id: number;
+  name: string;
+  email: string;
+}
 ```
 
-The documentation site will be available at `http://localhost:8000`
+### 2. Create an Item Component
 
-### Directory Structure
-
-```
-react-list-docs
-├── .dumirc.ts          # Dumi configuration
-├── docs                # Documentation files
-│   ├── index.md       # Home page
-│   ├── guide          # Guide section
-│   └── components     # Component documentation
-├── public             # Static assets
-│   └── logo.png       # Site logo
-└── workbox-config.cjs # PWA configuration
+```tsx
+const ItemView = ({ item }: { item: User }) => (
+  <div className="user-item">
+    <span>{item.name}</span>
+    <span>{item.email}</span>
+  </div>
+);
 ```
 
-## Available Scripts
+### 3. Use ReactList
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run start` - Alias for `npm run dev`
+```tsx
+import { ReactList } from '@jswork/react-list';
 
-## Configuration
+function App() {
+  const users: User[] = [
+    { id: 1, name: 'Alice', email: 'alice@example.com' },
+    { id: 2, name: 'Bob', email: 'bob@example.com' },
+  ];
 
-The main configuration is in [`.dumirc.ts`](/.dumirc.ts):
-
-```ts
-import { defineConfig } from 'dumi';
-
-export default defineConfig({
-  base: '/react-list-docs/',           // Base path for deployment
-  publicPath: '/react-list-docs/',     // Public path for assets
-  logo: '/react-list-docs/logo.png',   // Site logo
-  locales: [{ id: 'en-US', name: 'English' }],
-  themeConfig: {
-    name: 'Dumi Docs',           // Site name
-    description: 'A dumi documentation template project.',
-    nav: [...],                  // Navigation
-    socialLinks: {
-      github: 'https://github.com/afeiship/react-list-docs',
-    },
-  },
-});
+  return (
+    <ReactList data={users} keyExtractor="id" slots={{ item: ItemView }} />
+  );
+}
 ```
 
-## Adding Content
+## Key Concepts
 
-### Creating Pages
+### Slot System
 
-Create markdown files in the `docs` directory:
+Slots are the core abstraction of ReactList. A slot can be:
 
-```markdown
----
-title: My Page
-order: 1
----
+1. **A React component** - `slots={{ item: MyComponent }}`
+2. **A React node** - `slots={{ item: <div>Hello</div> }}`
+3. **A component with default props** - `slots={{ item: { component: MyComponent, props: { className: 'item' } } }}`
 
-# My Page Content
+### Key Extraction
 
-Write your documentation here.
-```
+ReactList requires a `keyExtractor` for React reconciliation. You can use:
 
-### Organizing Sections
+- **A property key**: `keyExtractor="id"` - simple and concise
+- **A custom function**: `keyExtractor={(item, index) => \`user-${item.id}\`}` - full control
 
-Create subdirectories to organize your documentation:
+### Empty State
 
-```
-docs/
-├── guide/
-│   ├── getting-started.md
-│   ├── configuration.md
-│   └── deployment.md
-└── components/
-    ├── index.md
-    └── button.md
+Provide an `empty` slot to handle empty data:
+
+```tsx
+<ReactList
+  data={users}
+  keyExtractor="id"
+  slots={{
+    item: ItemView,
+    empty: () => <div>No users found</div>,
+  }}
+/>
 ```
 
 ## Next Steps
 
-- [Configuration](/guide/configuration) - Customize your documentation site
-- [Deployment](/guide/deployment) - Deploy your documentation site
+- [API Reference](/components) - Full component API documentation
+- [Playground](/playground) - Interactive examples and demos

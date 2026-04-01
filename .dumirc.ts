@@ -13,8 +13,8 @@ export default defineConfig({
     codeBlockMode: 'passive',
   },
   themeConfig: {
-    name: 'react-list-docs',
-    description: 'Docs for react-list.',
+    name: 'ReactList',
+    description: 'A type-safe list component with slot-based architecture.',
     nav: [
       {
         title: 'Guide',
@@ -23,6 +23,10 @@ export default defineConfig({
       {
         title: 'Components',
         link: '/components',
+      },
+      {
+        title: 'API',
+        link: '/guide/api',
       },
       {
         title: 'Playground',

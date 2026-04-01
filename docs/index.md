@@ -1,73 +1,80 @@
 ---
-title: Dumi Docs Template
+title: ReactList
 hero:
-  title: Dumi Docs Template
-  description: A template project for building documentation sites with dumi.
+  title: ReactList
+  description: A highly abstract, type-safe list component for React with slot-based architecture.
   actions:
     - text: Get Started
       link: /guide/getting-started
+    - text: API Reference
+      link: /components
     - text: GitHub
-      link: https://github.com/afeiship/react-list-docs
+      link: https://github.com/afeiship/react-list
 features:
-  - title: Dumi Powered
-    emoji: 📖
-    description: Built with dumi, a excellent doc tool for component library developers
-  - title: PWA Ready
-    emoji: 🚀
-    description: Out-of-the-box PWA support with workbox for better performance
-  - title: Type-Safe
+  - title: Slot-based Architecture
+    emoji: 🧩
+    description: Render items, empty states, and more with full control via a flexible slot system
+  - title: Type-safe Generics
     emoji: 🔒
-    description: Full TypeScript support with comprehensive type definitions
-  - title: Modern Tooling
-    emoji: 🛠️
-    description: Pre-configured with husky, commitlint, lint-staged, and prettier
-  - title: Easy to Deploy
-    emoji: 🌐
-    description: Build static sites ready for GitHub Pages, Netlify, or Vercel
-  - title: Customizable
+    description: Full TypeScript support with <T> generic for any data type
+  - title: Flexible Key Extraction
+    emoji: 🔑
+    description: Use property keys or custom functions for React reconciliation
+  - title: Performance Optimized
+    emoji: ⚡
+    description: Memoized key generation for efficient rendering of large lists
+  - title: Zero Dependencies
+    emoji: 📦
+    description: Only requires React as peer dependency, no extra bloat
+  - title: Headless Component
     emoji: 🎨
-    description: Flexible theme configuration with sidebar, navigation, and social links
+    description: No CSS included - you provide all styling for maximum flexibility
 ---
 
 ## Installation
 
 ```bash
-# Clone this template
-git clone https://github.com/afeiship/react-list-docs.git
+# npm
+npm install -S @jswork/react-list
 
-# Install dependencies
-npm install
+# yarn
+yarn add @jswork/react-list
 
-# Start development server
-npm run dev
+# pnpm
+pnpm add @jswork/react-list
 ```
 
 ## Quick Start
 
-```bash
-# Start development server
-npm run dev
+```tsx
+import { ReactList } from '@jswork/react-list';
 
-# Build for production
-npm run build
+interface User {
+  id: number;
+  name: string;
+}
 
-# Preview production build
-npm run preview
+const users: User[] = [
+  { id: 1, name: 'Alice' },
+  { id: 2, name: 'Bob' },
+];
+
+function App() {
+  return (
+    <ReactList
+      data={users}
+      keyExtractor="id"
+      slots={{
+        item: ({ item }) => <div>{item.name}</div>,
+      }}
+    />
+  );
+}
 ```
-
-## Tailwind Demo
-
-<div class="debug x-5 p-2 hover:debug-blue rounded bg-slate-100">
-  <button class="bg-blue-500 text-white px-4 py-2 rounded-md">Get Started</button>
-  <button class="bg-red-200 px-4 py-2 rounded-md">Show Demo</button>
-</div>
 
 ## Documentation
 
-- [Guide](/guide/getting-started) - Get started with the template
-- [Configuration](/guide/configuration) - Customize your documentation site
-- [Deployment](/guide/deployment) - Deploy your documentation site
-
-```
-
-```
+- [Getting Started](/guide/getting-started) - Installation and basic usage
+- [API Reference](/components) - Full component API documentation
+- [Playground](/playground) - Interactive examples and demos
+- [Live Demo](https://afeiship.github.io/react-list/) - See it in action

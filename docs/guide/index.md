@@ -5,16 +5,15 @@ order: 0
 
 # Guide
 
-Welcome to the react-list-docs template guide. This section will help you get started with building your documentation site.
+Welcome to the ReactList guide. ReactList is a lightweight, performant list component that separates data from presentation through a flexible slot system.
 
 ## Topics
 
 - [Getting Started](./getting-started) - Installation and basic usage
-- [Configuration](./configuration) - Customize your documentation site
-- [Deployment](./deployment) - Deploy your documentation site
+- [API Reference](./api) - Component props and slot types
 
 ## Quick Links
 
-- [Dumi Official Documentation](https://d.umijs.org)
-- [GitHub Repository](https://github.com/afeiship/react-list-docs)
-
+- [Live Demo](https://afeiship.github.io/react-list/)
+- [GitHub Repository](https://github.com/afeiship/react-list)
+- [npm Package](https://www.npmjs.com/package/@jswork/react-list)

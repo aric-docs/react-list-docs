@@ -5,21 +5,34 @@ order: 1
 
 # Playground
 
-Welcome to the interactive playground! Here you can explore live demos with real-time editing capabilities.
+Explore interactive demos of ReactList with live code examples.
 
-## Features
+## Basic Usage
 
-- **Live Editing** - Edit code and see changes immediately
-- **Interactive Demos** - All examples are runnable and editable
-- **Type-Safe** - Full TypeScript support
-- **Best Practices** - Examples following industry standards
+The simplest way to render a list of items:
 
-## Demo Example
+<code src="./demos/basic.tsx">Basic List</code>
 
-Here's a simple interactive counter example to get started:
+## Empty State
 
-<code src="./demos/counter.tsx">Interactive Counter</code>
+Handle the case when data is empty:
 
-## Getting Started
+<code src="./demos/empty-state.tsx">Empty State</code>
 
-You can create your own playground examples by creating markdown files in the `playground` directory. Use the code block syntax with `tsx` or `jsx` language to create interactive demos.
+## Custom Key Extractor
+
+Use a function for complex key generation:
+
+<code src="./demos/custom-key.tsx">Custom Key Extractor</code>
+
+## Slot with Props
+
+Pass default props to item components via slot configuration:
+
+<code src="./demos/slot-props.tsx">Slot with Default Props</code>
+
+## Interactive List
+
+A fully interactive list with add/remove functionality:
+
+<code src="./demos/interactive.tsx">Interactive List</code>

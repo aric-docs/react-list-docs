@@ -16,19 +16,26 @@ Complete API documentation for the `@jswork/react-list` package.
 | `Slot`           | Type      | Slot type definition                          |
 | `SELF`           | Symbol    | Use item itself as key (for primitive arrays) |
 | `KeyExtractor`   | Type      | Key extractor type definition                 |
+| `ItemContext`    | Type      | Shared context type `{ item, index, data }`   |
 
 ## ReactListProps\<T\>
 
 ```typescript
+export type ItemContext<T> = {
+  item: T;
+  index: number;
+  data: T[];
+};
+
 interface ReactListProps<T> {
   data: T[];
   keyExtractor?:
     | typeof SELF
     | keyof T
     | string
-    | ((item: T, index: number) => string | number); // default: "id"
+    | ((ctx: ItemContext<T>) => string | number); // default: "id"
   slots: {
-    item: Slot<{ item: T; index: number; data: T[] }>;
+    item: Slot<ItemContext<T>>;
     empty?: Slot<{ data: T[] }>;
   };
 }
@@ -36,11 +43,11 @@ interface ReactListProps<T> {
 
 ### Props
 
-| Property       | Required | Type                                                                                 | Description                                               |
-| -------------- | -------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------- |
-| `data`         | Yes      | `T[]`                                                                                | Array of data items to render                             |
-| `keyExtractor` | No       | `typeof SELF \| keyof T \| string \| ((item: T, index: number) => string \| number)` | Determines the unique key for each item (default: `"id"`) |
-| `slots`        | Yes      | `{ item: Slot<...>; empty?: Slot<...> }`                                             | Slot configuration for rendering                          |
+| Property       | Required | Type                                                                              | Description                                               |
+| -------------- | -------- | --------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| `data`         | Yes      | `T[]`                                                                             | Array of data items to render                             |
+| `keyExtractor` | No       | `typeof SELF \| keyof T \| string \| ((ctx: ItemContext<T>) => string \| number)` | Determines the unique key for each item (default: `"id"`) |
+| `slots`        | Yes      | `{ item: Slot<...>; empty?: Slot<...> }`                                          | Slot configuration for rendering                          |
 
 ### slots.item
 
@@ -154,7 +161,7 @@ Use a function for complex key generation:
 ```tsx
 <ReactList
   data={users}
-  keyExtractor={(item, index) => `user-${item.id}-${index}`}
+  keyExtractor={({ item, index }) => `user-${item.id}-${index}`}
   slots={...}
 />
 ```

@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@jswork/react-list':
-        specifier: ^2.0.6
-        version: 2.0.6
+        specifier: ^2.0.7
+        version: 2.0.7
     devDependencies:
       '@commitlint/cli':
         specifier: ^17.1.2
@@ -1476,8 +1476,8 @@ packages:
   '@jswork/presets-tailwind@1.2.37':
     resolution: {integrity: sha512-DQ+39NkekCaJok+bnlrWlWKVW6o+qVPXM5pKY9d6A1YRvmAfTzsT7SCeu+P5a4SRJ6+aSQtC77aqQMbw9WJHrw==}
 
-  '@jswork/react-list@2.0.6':
-    resolution: {integrity: sha512-GgRNfaII8UnrASOm2rIYguQ1Tpr0Ow85Nlm+SjU2aadN1JO2fcNN10aTPveLl2oxTHYHeYPQM3VhLZDj4D9E8Q==}
+  '@jswork/react-list@2.0.7':
+    resolution: {integrity: sha512-rFIznH1yKrqYeoAfMLVznq7TOHzap2JD4/QzxWe0JAnQ0P9w7/tNa0e9D5g4wzrSI+lakVZrfdczhvgruEBVBg==}
 
   '@jswork/tailwind-blank@1.0.11':
     resolution: {integrity: sha512-38U9Dxfzpzo7By4kS9J4A3aej/HP2IW1i8rz9kjxTnvCgR+CRKq1NaFrJzS629hcMpMMYcO452keSvVfHxTj6Q==}
@@ -10345,7 +10345,7 @@ snapshots:
       '@jswork/tailwind-shortcuts': 1.0.38
       '@jswork/tailwind-width': 1.0.7
 
-  '@jswork/react-list@2.0.6':
+  '@jswork/react-list@2.0.7':
     dependencies:
       '@jswork/class-imperative-handle': 1.0.1
       '@jswork/noop': 1.0.0
@@ -10616,7 +10616,7 @@ snapshots:
   '@rc-component/portal@1.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@babel/runtime': 7.29.2
-      classnames: 2.3.2
+      classnames: 2.5.1
       rc-util: 5.44.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -10641,7 +10641,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.29.2
       '@rc-component/portal': 1.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      classnames: 2.3.2
+      classnames: 2.5.1
       rc-motion: 2.9.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-resize-observer: 1.4.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-util: 5.44.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -10652,7 +10652,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.29.2
       '@rc-component/portal': 1.1.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      classnames: 2.3.2
+      classnames: 2.5.1
       rc-motion: 2.9.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-resize-observer: 1.4.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-util: 5.44.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -16695,7 +16695,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.29.2
       '@rc-component/trigger': 1.18.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      classnames: 2.3.2
+      classnames: 2.5.1
       rc-util: 5.44.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -16762,7 +16762,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.29.2
       '@rc-component/trigger': 1.18.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      classnames: 2.3.2
+      classnames: 2.5.1
       rc-motion: 2.9.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-overflow: 1.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-util: 5.44.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -16783,7 +16783,7 @@ snapshots:
   rc-motion@2.9.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.29.2
-      classnames: 2.3.2
+      classnames: 2.5.1
       rc-util: 5.44.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -16800,7 +16800,7 @@ snapshots:
   rc-overflow@1.5.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.29.2
-      classnames: 2.3.2
+      classnames: 2.5.1
       rc-resize-observer: 1.4.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-util: 5.44.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
@@ -16856,7 +16856,7 @@ snapshots:
   rc-resize-observer@1.4.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.29.2
-      classnames: 2.3.2
+      classnames: 2.5.1
       rc-util: 5.44.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -16921,7 +16921,7 @@ snapshots:
   rc-tabs@12.15.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.29.2
-      classnames: 2.3.2
+      classnames: 2.5.1
       rc-dropdown: 4.1.0(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-menu: 9.12.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-motion: 2.9.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -16956,7 +16956,7 @@ snapshots:
     dependencies:
       '@babel/runtime': 7.29.2
       '@rc-component/trigger': 2.3.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      classnames: 2.3.2
+      classnames: 2.5.1
       rc-util: 5.44.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -16974,7 +16974,7 @@ snapshots:
   rc-tree@5.13.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.29.2
-      classnames: 2.3.2
+      classnames: 2.5.1
       rc-motion: 2.9.5(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-util: 5.44.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-virtual-list: 3.19.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -17007,7 +17007,7 @@ snapshots:
   rc-virtual-list@3.19.2(react-dom@18.3.1(react@18.3.1))(react@18.3.1):
     dependencies:
       '@babel/runtime': 7.29.2
-      classnames: 2.3.2
+      classnames: 2.5.1
       rc-resize-observer: 1.4.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       rc-util: 5.44.4(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       react: 18.3.1

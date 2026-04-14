@@ -67,7 +67,7 @@ const EmptyView = () => <div>No users found</div>;
 ```tsx
 <ReactList
   data={users}
-  keyExtractor={(item, index) => `user-${item.id}-${index}`}
+  keyExtractor={({ item, index }) => `user-${item.id}-${index}`}
   slots={{ item: ItemView }}
 />
 ```
@@ -122,11 +122,11 @@ function UserList() {
 
 ## API
 
-| Property     | Required | Type                                                        | Default | Description                              |
-| ------------ | -------- | ----------------------------------------------------------- | ------- | ---------------------------------------- |
-| data         | Yes      | `T[]`                                                       | -       | Array of data items to render            |
-| keyExtractor | Yes      | `keyof T \| ((item: T, index: number) => string \| number)` | -       | Property key or function for unique keys |
-| slots        | Yes      | `{ item: Slot<...>; empty?: Slot<...> }`                    | -       | Slot configuration for rendering         |
+| Property     | Required | Type                                                              | Default | Description                                               |
+| ------------ | -------- | ----------------------------------------------------------------- | ------- | --------------------------------------------------------- |
+| data         | Yes      | `T[]`                                                             | -       | Array of data items to render                             |
+| keyExtractor | No       | `typeof SELF \| keyof T \| string \| ((ctx: ItemContext) => Key)` | `"id"`  | Property key, dot path, SELF, or function for unique keys |
+| slots        | Yes      | `{ item: Slot; empty?: Slot }`                                    | -       | Slot configuration for rendering                          |
 
 ### Slot Item Props
 
@@ -144,9 +144,9 @@ function UserList() {
 
 ## Best Practices
 
-1. **Always provide `keyExtractor`** - Required for React reconciliation
+1. **`keyExtractor` defaults to `"id"`** - Only specify when your key field differs
 2. **Use property keys when possible** - `keyExtractor="id"` is simpler than a function
-3. **Leverage generics** - The `<T>` type parameter ensures type safety
+3. **Leverage generics** - The type parameter ensures type safety
 4. **Use slots for default props** - Pass common props via slot configuration
 5. **Memoize item components** - Wrap item components with `React.memo` for performance
 6. **Handle empty states** - Always provide an empty slot for better UX

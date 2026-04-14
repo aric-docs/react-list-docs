@@ -79,7 +79,7 @@ ReactList requires a `keyExtractor` for React reconciliation (defaults to `"id"`
 - **A property key**: `keyExtractor="id"` - simple and concise
 - **A dot path**: `keyExtractor="profile.address.city"` - extract nested keys
 - **SELF symbol**: `keyExtractor={SELF}` - use item itself as key for primitive arrays
-- **A custom function**: `keyExtractor={(item, index) => \`user-${item.id}\`}` - full control
+- **A custom function**: `keyExtractor={({ item, index }) => \`user-${item.id}\`}`- full control, receives`ItemContext` object
 
 ### Empty State
 

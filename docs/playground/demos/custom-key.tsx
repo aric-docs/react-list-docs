@@ -22,7 +22,7 @@ export default () => {
       </p>
       <ReactList
         data={products}
-        keyExtractor={(item, index) => `${item.sku}-${index}`}
+        keyExtractor={({ item, index }) => `${item.sku}-${index}`}
         slots={{
           item: ({ item, index }) => (
             <div

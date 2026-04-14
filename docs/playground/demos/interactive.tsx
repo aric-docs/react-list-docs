@@ -27,18 +27,10 @@ export default () => {
 
   return (
     <div>
-      <h3 style={{ marginBottom: 12 }}>Interactive User List</h3>
+      <h3 className="mb-3">Interactive User List</h3>
       <button
         onClick={handleAdd}
-        style={{
-          padding: '6px 16px',
-          marginBottom: 12,
-          background: '#1890ff',
-          color: '#fff',
-          border: 'none',
-          borderRadius: 4,
-          cursor: 'pointer',
-        }}
+        className="px-4 py-1.5 mb-3 bg-blue-500 text-white border-none rounded cursor-pointer"
       >
         Add Random User
       </button>
@@ -47,43 +39,19 @@ export default () => {
         keyExtractor="id"
         slots={{
           item: ({ item }) => (
-            <div
-              style={{
-                padding: '8px 12px',
-                borderBottom: '1px solid #f0f0f0',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-              }}
-            >
+            <div className="flex justify-between items-center px-3 py-2 border-b border-gray-100">
               <span>{item.name}</span>
               <button
                 onClick={() => handleRemove(item.id)}
-                style={{
-                  padding: '4px 12px',
-                  background: '#ff4d4f',
-                  color: '#fff',
-                  border: 'none',
-                  borderRadius: 4,
-                  cursor: 'pointer',
-                  fontSize: 12,
-                }}
+                className="px-3 py-1 bg-red-500 text-white border-none rounded cursor-pointer text-xs"
               >
                 Remove
               </button>
             </div>
           ),
           empty: () => (
-            <div
-              style={{
-                padding: 24,
-                textAlign: 'center',
-                color: '#999',
-                background: '#fafafa',
-                borderRadius: 4,
-              }}
-            >
-              No users left. Click "Add Random User" to add one.
+            <div className="p-6 text-center text-gray-400 bg-gray-50 rounded">
+              No users left. Click &quot;Add Random User&quot; to add one.
             </div>
           ),
         }}

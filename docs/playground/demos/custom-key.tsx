@@ -16,31 +16,23 @@ const products: Product[] = [
 export default () => {
   return (
     <div>
-      <h3 style={{ marginBottom: 12 }}>Product List (Custom Keys)</h3>
-      <p style={{ color: '#666', fontSize: 14, marginBottom: 12 }}>
+      <h3 className="mb-3">Product List (Custom Keys)</h3>
+      <p className="text-gray-500 text-sm mb-3">
         Keys are generated using a custom function to handle duplicate SKUs.
       </p>
       <ReactList
         data={products}
         keyExtractor={({ item, index }) => `${item.sku}-${index}`}
         slots={{
-          item: ({ item, index }) => (
-            <div
-              style={{
-                padding: '8px 12px',
-                borderBottom: '1px solid #f0f0f0',
-                display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center',
-              }}
-            >
+          item: ({ item }) => (
+            <div className="flex justify-between items-center px-3 py-2 border-b border-gray-100">
               <span>
                 <strong>{item.name}</strong>
-                <span style={{ color: '#888', marginLeft: 8, fontSize: 12 }}>
+                <span className="text-gray-400 ml-2 text-xs">
                   SKU: {item.sku}
                 </span>
               </span>
-              <span style={{ color: '#52c41a', fontWeight: 500 }}>
+              <span className="text-green-500 font-medium">
                 ${item.price}
               </span>
             </div>

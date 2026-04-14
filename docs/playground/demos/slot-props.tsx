@@ -15,19 +15,10 @@ const ItemView = ({
   variant?: string;
 }) => (
   <div
-    style={{
-      padding: '8px 12px',
-      borderBottom: '1px solid #f0f0f0',
-      display: 'flex',
-      alignItems: 'center',
-      gap: 8,
-      background: variant === 'compact' ? '#fafafa' : 'transparent',
-    }}
+    className={`flex items-center gap-2 px-3 py-2 border-b border-gray-100 ${variant === 'compact' ? 'bg-gray-50' : 'bg-transparent'}`}
   >
     <input type="checkbox" defaultChecked={item.done} />
-    <span style={{ textDecoration: item.done ? 'line-through' : 'none' }}>
-      {item.title}
-    </span>
+    <span className={item.done ? 'line-through' : ''}>{item.title}</span>
   </div>
 );
 
@@ -40,8 +31,8 @@ const tasks: Task[] = [
 export default () => {
   return (
     <div>
-      <h3 style={{ marginBottom: 12 }}>Slot with Default Props</h3>
-      <p style={{ color: '#666', fontSize: 14, marginBottom: 12 }}>
+      <h3 className="mb-3">Slot with Default Props</h3>
+      <p className="text-gray-500 text-sm mb-3">
         The <code>variant</code> prop is passed via slot configuration, not the data.
       </p>
       <ReactList

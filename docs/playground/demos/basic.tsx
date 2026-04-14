@@ -16,22 +16,15 @@ const users: User[] = [
 export default () => {
   return (
     <div>
-      <h3 style={{ marginBottom: 12 }}>Team Members</h3>
+      <h3 className="mb-3">Team Members</h3>
       <ReactList
         data={users}
         keyExtractor="id"
         slots={{
           item: ({ item }) => (
-            <div
-              style={{
-                padding: '8px 12px',
-                borderBottom: '1px solid #f0f0f0',
-                display: 'flex',
-                justifyContent: 'space-between',
-              }}
-            >
-              <span style={{ fontWeight: 500 }}>{item.name}</span>
-              <span style={{ color: '#888' }}>{item.role}</span>
+            <div className="flex justify-between px-3 py-2 border-b border-gray-100">
+              <span className="font-medium">{item.name}</span>
+              <span className="text-gray-400">{item.role}</span>
             </div>
           ),
         }}

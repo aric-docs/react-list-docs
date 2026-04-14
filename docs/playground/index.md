@@ -25,6 +25,18 @@ Use a function for complex key generation:
 
 <code src="./demos/custom-key.tsx">Custom Key Extractor</code>
 
+## SELF Key (Primitive Arrays)
+
+Use the `SELF` symbol for primitive arrays where each item is its own key:
+
+<code src="./demos/self-key.tsx">SELF Key</code>
+
+## Dot Path (Nested Keys)
+
+Use a dot-separated path to extract keys from nested objects:
+
+<code src="./demos/dot-path.tsx">Dot Path Key</code>
+
 ## Slot with Props
 
 Pass default props to item components via slot configuration:

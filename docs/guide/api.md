@@ -9,18 +9,24 @@ Complete API documentation for the `@jswork/react-list` package.
 
 ## Exports
 
-| Export           | Type      | Description                       |
-| ---------------- | --------- | --------------------------------- |
-| `ReactList`      | Component | The main list component           |
-| `ReactListProps` | Interface | Props interface for the component |
-| `Slot`           | Type      | Slot type definition              |
+| Export           | Type      | Description                                   |
+| ---------------- | --------- | --------------------------------------------- |
+| `ReactList`      | Component | The main list component                       |
+| `ReactListProps` | Interface | Props interface for the component             |
+| `Slot`           | Type      | Slot type definition                          |
+| `SELF`           | Symbol    | Use item itself as key (for primitive arrays) |
+| `KeyExtractor`   | Type      | Key extractor type definition                 |
 
 ## ReactListProps\<T\>
 
 ```typescript
 interface ReactListProps<T> {
   data: T[];
-  keyExtractor: keyof T | ((item: T, index: number) => string | number);
+  keyExtractor?:
+    | typeof SELF
+    | keyof T
+    | string
+    | ((item: T, index: number) => string | number); // default: "id"
   slots: {
     item: Slot<{ item: T; index: number; data: T[] }>;
     empty?: Slot<{ data: T[] }>;
@@ -30,11 +36,11 @@ interface ReactListProps<T> {
 
 ### Props
 
-| Property       | Required | Type                                                        | Description                             |
-| -------------- | -------- | ----------------------------------------------------------- | --------------------------------------- |
-| `data`         | Yes      | `T[]`                                                       | Array of data items to render           |
-| `keyExtractor` | Yes      | `keyof T \| ((item: T, index: number) => string \| number)` | Determines the unique key for each item |
-| `slots`        | Yes      | `{ item: Slot<...>; empty?: Slot<...> }`                    | Slot configuration for rendering        |
+| Property       | Required | Type                                                                                 | Description                                               |
+| -------------- | -------- | ------------------------------------------------------------------------------------ | --------------------------------------------------------- |
+| `data`         | Yes      | `T[]`                                                                                | Array of data items to render                             |
+| `keyExtractor` | No       | `typeof SELF \| keyof T \| string \| ((item: T, index: number) => string \| number)` | Determines the unique key for each item (default: `"id"`) |
+| `slots`        | Yes      | `{ item: Slot<...>; empty?: Slot<...> }`                                             | Slot configuration for rendering                          |
 
 ### slots.item
 
@@ -110,6 +116,35 @@ Use a property name when items have a unique identifier:
 ```tsx
 // Use string property key
 <ReactList data={users} keyExtractor="id" slots={...} />
+```
+
+### Dot Path (Nested Properties)
+
+Use a dot-separated path to extract keys from nested objects:
+
+```tsx
+// Deep nested key extraction
+<ReactList
+  data={users}
+  keyExtractor="profile.address.city"
+  slots={...}
+/>
+```
+
+### SELF (Primitive Arrays)
+
+Use the `SELF` symbol when items are primitive values (strings, numbers):
+
+```tsx
+import { ReactList, SELF } from '@jswork/react-list';
+
+<ReactList
+  data={['apple', 'banana', 'cherry']}
+  keyExtractor={SELF}
+  slots={{
+    item: ({ item }) => <div>{item}</div>,
+  }}
+/>;
 ```
 
 ### Custom Function
